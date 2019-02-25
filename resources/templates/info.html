@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>CITY INFO</title>
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+
+<link rel="stylesheet" href="css/style.css">
+
+
+
+</head>
+<body style="background-image: url('images/bg02.jpg'); height =100%; background-position: center; background-size: cover;">
+	
+	<form  method="post" action="/cityinfo" th:object="${data}">
+					<center>
+
+					<h2 Style="color: #fff;">Enter The Country*</h2>
+					<br> <br> <br> <input class="input100" type="text"
+						name="country" th:field="*{country}"/> <br><br><br><br>
+	
+              </center>
+              </form>
+		<section>
+		
+		
+		
+		
+			<div class="tbl-header">
+				<table cellpadding="0" cellspacing="0" border="0">
+					<thead>
+						<tr>
+							<th>name</th>
+							<th>capital</th>
+							<th>sub region</th>
+							<th>population</th>
+							<th>area</th>
+							<th>language</th>
+							
+							
+						</tr>
+					</thead>
+				</table>
+			</div>
+			 <div class="tbl-content">
+				<table cellpadding="0" cellspacing="0" border="0">
+					<tbody>
+						<tr >
+							<td th:text="${name}"></td>
+							<td th:text="${cap}"></td>
+							<td th:text="${sub}"></td>
+							<td th:text="${pop}"></td>
+							<td th:text="${area}"></td>
+							<td th:text="${lan}"></td>
+						</tr>
+
+					</tbody>
+				</table>
+				</div>
+		</section>
+
+
+	
+
+</body>
+
+</html>
