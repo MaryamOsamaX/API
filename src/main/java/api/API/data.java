@@ -1,4 +1,4 @@
-package fci.sw.assignment;
+package api.API;
 
 public class data {
     private String country;
