@@ -53,6 +53,7 @@ public class APIServices {
 		model.addAttribute("data" , x);
 		return "news";
 	}
+
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/citynews")
 	public String getNews(Model model,@ModelAttribute("data") data x) {
@@ -81,4 +82,5 @@ public class APIServices {
 		
 		return "news";
 	}
+
 }
