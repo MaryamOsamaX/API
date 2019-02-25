@@ -53,4 +53,32 @@ public class APIServices {
 		model.addAttribute("data" , x);
 		return "news";
 	}
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/citynews")
+	public String getNews(Model model,@ModelAttribute("data") data x) {
+		List <Article> article=new ArrayList <Article>();
+		String country=x.getCountry();
+		
+		
+		RestTemplate restTemplate = new RestTemplate();
+	    String result = restTemplate.getForObject("https://newsapi.org/v2/everything?apikey=e4d5462b31484f4091d259103188b15f&q="+country
+	    		, String.class);
+	    JSONObject post=new JSONObject(result);
+	    JSONArray articles = post.getJSONArray("articles");
+	    for(int i=0 ; i< articles.length(); i++)
+	    { 
+	    	Article a=new Article();
+	    	JSONObject obj2 = articles.getJSONObject(i);
+	    	a.setTitle(obj2.getString("title"));
+	    	
+	    	a.setUrl(obj2.getString("url"));
+	    	article.add(a);
+	    	
+	    }
+	    model.addAttribute("articles", article);
+	   
+	 
+		
+		return "news";
+	}
 }
