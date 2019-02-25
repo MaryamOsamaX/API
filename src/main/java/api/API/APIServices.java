@@ -16,7 +16,12 @@ import org.springframework.web.client.RestTemplate;
 @Controller
 public class APIServices {
     
-	
+	@RequestMapping(method = RequestMethod.GET, value = "/cityweather")
+	public String getweatherview(Model model)
+	{   data  x=new data();
+		model.addAttribute("data" , x);
+		return "weather";
+	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/cityweather")
 	public String getWeather(Model model,@ModelAttribute("data") data x) {
