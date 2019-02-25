@@ -53,4 +53,5 @@ public class APIServices {
 		model.addAttribute("data" , x);
 		return "news";
 	}
+
 }
