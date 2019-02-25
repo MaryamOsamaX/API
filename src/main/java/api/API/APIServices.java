@@ -47,5 +47,12 @@ public class APIServices {
 		model.addAttribute("max" ,temp_max+" ْc" );
 		return "weather";
 	}
+	@RequestMapping(method = RequestMethod.GET, value = "/citynews")
+	public String getnewsView(Model model)
+	{   data  x=new data();
+		model.addAttribute("data" , x);
+		return "news";
+	}
 	
+
 }
