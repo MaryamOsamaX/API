@@ -88,4 +88,38 @@ public class APIServices {
 		model.addAttribute("data" , x);
 		return "info";
 	}
+
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/cityinfo")
+	public String getInfo(Model model,@ModelAttribute("data") data x) {
+	  
+		String country=x.getCountry();
+		RestTemplate restTemplate = new RestTemplate();
+	    String result = restTemplate.getForObject("https://restcountries.eu/rest/v2/name/"+country, String.class);
+	   // System.out.println(result);
+	    String subres=result.substring(1, result.length()-1);
+	   JSONObject res=new JSONObject(subres); 
+	  
+	   	String name=res.getString("name");
+	    String capital=res.getString("capital");
+	    String subregion=res.getString("subregion");
+	    int population=res.getInt("population");
+	    double area=res.getDouble("area");
+	  
+	    JSONArray arr = res.getJSONArray("languages");
+
+		JSONObject obj2 = arr.getJSONObject(0);
+		String language = obj2.getString("name");
+		
+        model.addAttribute("name" , name);
+        model.addAttribute("cap", capital);
+        model.addAttribute("sub", subregion);
+        model.addAttribute("pop", population);
+        model.addAttribute("area", area);
+        model.addAttribute("lan", language);
+	  
+		
+		return "info";
+	}
+
 }
