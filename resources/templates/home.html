@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>CITY INFO</title>
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+
+<link rel="stylesheet" href="css/style.css">
+
+
+
+</head>
+<body
+	style="background-image: url('images/bgh.jpg'); height =100%; background-position: center; background-size: cover;">
+	
+
+		<section>
+
+			<div class="tbl-content">
+				<center>
+
+					
+				<form  method="get" action="/cityweather" th:action="@{/cityweather}">
+					<input type="Submit"  value="GET WEATHER" /> 
+				</form> 
+				
+				
+	<form  method="get" action="/cityinfo" th:action="@{/cityinfo}">
+				 
+				<input type="Submit" value="GET INFO" />
+				</form>
+				<form  method="get" action="/citynews" th:action="@{/citynews}">
+				<input type="Submit" value="GET NEWS" /></form>
+				</center>
+
+			</div>
+		</section>
+
+
+	
+
+</body>
+
+</html>
