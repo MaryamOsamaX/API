@@ -88,6 +88,7 @@ public class APIServices {
 		model.addAttribute("data" , x);
 		return "info";
 	}
+
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/cityinfo")
 	public String getInfo(Model model,@ModelAttribute("data") data x) {
@@ -120,4 +121,5 @@ public class APIServices {
 		
 		return "info";
 	}
+
 }
